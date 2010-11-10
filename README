@@ -14,3 +14,11 @@ To Install:
 
 To Rebuild/Update:
 
+
+
+
+
+Contrib packages included in the hphp repo:
+cmake - atrpms
+flex, oniguruma - http://sourceforge.net/projects/hphp/files/
+re2c - rpmforge
