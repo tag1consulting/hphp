@@ -1,6 +1,8 @@
 *HipHop CentOS 5 packages*
 
-This repository contains all packages required for building and installing hiphop on CentOS/RHEL 5 that don't already exist in the EPEL or IUS repositories.
+This repository contains all packages required for building and installing
+hiphop on CentOS/RHEL 5 that don't already exist in the EPEL or IUS
+repositories.
 
 Requirements:
 EPEL: 'rpm -ivh http://epel.osuosl.org/5/x86_64/epel-release-5-4.noarch.rpm'
