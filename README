@@ -18,7 +18,7 @@ To Rebuild/Update:
 
 
 
-Contrib packages included in the hphp repo:
+Contrib rpms included in the hphp repo:
+flex,hiphop,oniguruma - http://sourceforge.net/projects/hphp/files/
 cmake - atrpms
-flex, oniguruma - http://sourceforge.net/projects/hphp/files/
 re2c - rpmforge
