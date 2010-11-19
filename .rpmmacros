@@ -1,0 +1,15 @@
+%_topdir      %(echo $HOME)/rpmbuild
+%_smp_mflags %([ -z "$RPM_BUILD_NCPUS" ] \\\
+        && RPM_BUILD_NCPUS="`/usr/bin/getconf _NPROCESSORS_ONLN`"; \\\
+        if [ "$RPM_BUILD_NCPUS" -gt 16 ]; then echo "-j16"; \\\
+        elif [ "$RPM_BUILD_NCPUS" -gt 3 ]; then echo "-j$RPM_BUILD_NCPUS"; \\\
+        else echo "-j3"; fi)
+%__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot
+
+#Payload compression with gzip:
+%_source_payload       w9.gzdio
+%_binary_payload       w9.gzdio
+
+#Use md5 for file hash algorithm:
+%_source_filedigest_algorithm  1
+%_binary_filedigest_algorithm  1 
