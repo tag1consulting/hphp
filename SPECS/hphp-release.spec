@@ -30,7 +30,7 @@ rm -rf $RPM_BUILD_ROOT
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 
 install -pm 644 %{SOURCE0} \
-    $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/ius.repo
+    $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/hphp.repo
 
 exit 0
 
