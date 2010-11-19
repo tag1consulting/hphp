@@ -24,8 +24,8 @@ To Install:
 
 
 To Rebuild/Update:
-* Install/configure mock:
-  - follow install guide at 
+* Install/configure Mock:
+  - follow install guide at http://fedoraproject.org/wiki/Projects/Mock#Mock
   - copy .rpmmacros to ~builduser/.rpmmacros and edit as needed
   - copy epel-5-x86_64-hphp to /etc/mock/epel-5-x86_64-hphp on the build box
 * Checkout the hiphop yum project
