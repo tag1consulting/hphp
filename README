@@ -7,18 +7,51 @@ repositories.
 Requirements:
 EPEL: 'rpm -ivh http://epel.osuosl.org/5/x86_64/epel-release-5-4.noarch.rpm'
 IUS: 'rpm -ivh http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-6.ius.el5.noarch.rpm'
+HPHP (this repo): 'rpm -ivh http://pkg.tag1consulting.com/hphp/x86_64/ius-release-1.0-6.ius.el5.noarch.rpm'
 
 
 To Install:
+* Run the above rpm -ivh commands to enable the required EPEL/IUS/HPHP repositories.
+* Install the hiphop-php rpm: 'yum install hiphop-php'
+  - this should calculate all dependencies and install all necessary packages.
+    However, it is likely that you will need to uninstall old versions of
+    PHP/MySQL and replace them with the packages provided in IUS (php52,
+    mysql51).
+  - to uninstall old versions of mysql and php: 'yum remove php* mysql*'
+  - try installing hiphop-php again: 'yum install hiphop-php'
+  - for Apache/httpd to recognize the newer php version, it will need to be restarted.
+* Compile your PHP application with HipHop!
 
 
 To Rebuild/Update:
+* Install/configure mock:
+  - follow install guide at 
+  - copy .rpmmacros to ~builduser/.rpmmacros and edit as needed
+  - copy epel-5-x86_64-hphp to /etc/mock/epel-5-x86_64-hphp on the build box
+* Checkout the hiphop yum project
+* Copy SRPMS/SPEC files to ~builduser/rpmbuild/{SRPMS,SPEC}
+* Install the hiphop SRPM: rpm -ivh ~builduser/rpmbuild/SRPMS/hiphop-php-1.0-1.el5.src.rpm
+* Extract and update the hiphop tarball in SOURCES:
+  - tar -xzvf hiphop-php.tar.gz
+  - cd hiphop-php
+  - git pull
+  - cd ..
+  - tar -czvf hiphop-php.tar.gz hiphop-php/
+* Modify SPECS/hphp.spec:
+  - vim SPECS/hphp.spec
+  - increment the Release:, Release: 1%{?dist} -> Release: 2%{?dist}
+  - add a comment detailing the changes
+* Build a new SRPM: rpmbuild -bs SPECS/hphp.spec
+* Build new RPM with Mock: mock -v -r epel-5-x86_64-hphp SRPMS/hiphop-php-1.0-2.fc14.src.rpm 
+* Copy resulting RPMS in to git:
+  - cp /var/lib/mock/epel-5-x86_64/result/*.x86_64.rpm RPMS/x86_64/
+  - cp /var/lib/mock/epel-5-x86_64/result/*.src.rpm SRPMS/
 
-
-
+Tag1 will hopefully soon have a scheduled cron/hudson job that syncs the latest
+RPMS from GitHub to the pkg.tag1consulting.com repository.
 
 
 Contrib rpms included in the hphp repo:
-flex,hiphop,oniguruma - http://sourceforge.net/projects/hphp/files/
+hiphop,oniguruma - http://sourceforge.net/projects/hphp/files/
 cmake - atrpms
 re2c - rpmforge
