@@ -109,8 +109,8 @@ export HPHP_LIB=/usr/lib64/hphp/bin
 export CC=/usr/bin/gcc44
 export CXX=/usr/bin/g++44
 
-ln -s /usr/lib64/hphp/src/hphp/hphp /usr/bin/hphp
-ln -s /usr/lib64/hphp/src/hphpi/hphpi /usr/bin/hphpi
+ln -sf /usr/lib64/hphp/src/hphp/hphp /usr/bin/hphp
+ln -sf /usr/lib64/hphp/src/hphpi/hphpi /usr/bin/hphpi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -121,7 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Thu Nov 18 2010 Rudy Grigar <rudy@tag1consulting.com> 1.0-2
-- Next version
+- Next version, add -f to symlink command
 
 * Mon Oct 25 2010 Rudy Grigar <rudy@tag1consulting.com> 1.0-1
 - Next version, clean up for ius deps
