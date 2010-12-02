@@ -1,7 +1,7 @@
 Name: hiphop-php
 Summary: HipHop PHP for CentOS 5 64bit
 Version: 1.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: GPL
 Group: Development/Compilers
 Source: %{name}.tar.gz
@@ -33,17 +33,20 @@ BuildRequires: ncurses-devel
 BuildRequires: libc-client-devel
 BuildRoot: %{_tmppath}/build-root-%{name}
 BuildArch: x86_64
-Requires: gcc44,gcc44-c++,make,cmake
+Requires: gcc44,gcc44-c++,make,cmake,perl,flex,bison
 Requires: mysql51
 Requires: mysql51-devel
 Requires: memcached,libmemcached
 Requires: boost >= 1.39.0
 Requires: boost-devel >= 1.39.0
 Requires: curl >= 7.20
+Requires: curl-devel >= 7.20
 Requires: expat
+Requires: expat-devel
 Requires: gd
 Requires: gd-devel
 Requires: libevent >= 1.4.13
+Requires: libevent-devel >= 1.4.13
 Requires: icu >= 4.2
 Requires: libicu >= 4.2
 Requires: libicu-devel >= 4.2
@@ -53,9 +56,12 @@ Requires: libmcrypt
 Requires: libmcrypt-devel
 Requires: oniguruma >= 5.9.2
 Requires: oniguruma-devel >= 5.9.2
+Requires: openldap-devel
 Requires: openssl
 Requires: openssl-devel
 Requires: pcre
+Requires: pcre-devel
+Requires: re2c >= 0.13.0
 Requires: tbb
 Requires: tbb-devel
 Requires: zlib
@@ -70,6 +76,7 @@ Requires: php52-gd,php52-mysql,php52-pecl-memcache
 Requires: readline-devel
 Requires: libc-client-devel
 Requires: libmemcached-devel
+Requires: libxml2-devel
 Requires: binutils-devel
 Url: http://tag1consulting.com
 
@@ -120,6 +127,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/hphp/*
 
 %changelog
+* Wed Dec 01 2010 Rudy Grigar <rudy@tag1consulting.com> 1.0-3
+- Fix a bunch of missing deps found after installing on fresh centos rackspace
+  vm.
+
 * Thu Nov 18 2010 Rudy Grigar <rudy@tag1consulting.com> 1.0-2
 - Next version, add -f to symlink command
 
