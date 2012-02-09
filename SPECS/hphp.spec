@@ -71,8 +71,8 @@ Requires: readline
 Requires: readline-devel
 Requires: ncurses
 Requires: ncurses-devel
-Requires: php52,php52-cli,php52-common
-Requires: php52-gd,php52-mysql,php52-pecl-memcache
+Requires: php53u,php53u-cli,php53u-common
+Requires: php53u-gd,php53u-mysql,php53u-pecl-memcache
 Requires: readline-devel
 Requires: libc-client-devel
 Requires: libmemcached-devel
