@@ -6,7 +6,7 @@ repositories.
 
 Requirements:
 EPEL: 'rpm -ivh http://epel.osuosl.org/5/x86_64/epel-release-5-4.noarch.rpm'
-IUS: 'rpm -ivh http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-6.ius.el5.noarch.rpm'
+IUS: 'rpm -ivh http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/x86_64/ius-release-1.0-10.ius.el5.noarch.rpm'
 HPHP (this repo): 'rpm -ivh http://pkg.tag1consulting.com/hphp/x86_64/hphp-release-1.0-2.el5.noarch.rpm'
 
 
